@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.hyunmin.manna'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.hyunmin.manna"
+        minSdk 23
+        targetSdk 36
+        versionCode 5
+        versionName "1.2.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding false
+    }
+
+    // assets 경로를 명시적으로 지정 (누락 방지)
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets']
+        }
+    }
+
+    // mp3 음성 파일이 AAB/APK에 확실히 포함되도록 보장
+    androidResources {
+        noCompress 'mp3'
+    }
+
+    // AAB에서 assets를 언어/화면밀도별로 쪼개지 않도록 (음성 누락 방지)
+    bundle {
+        language { enableSplit = false }
+        density  { enableSplit = false }
+        abi      { enableSplit = false }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    // 광고
+    implementation 'com.google.android.gms:play-services-ads:23.6.0'
+    // 인앱결제 (광고 제거 상품)
+    implementation 'com.android.billingclient:billing:8.3.0'
+}

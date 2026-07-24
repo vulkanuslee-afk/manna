@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.Manna" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:statusBarColor">#141b2e</item>
+        <item name="android:navigationBarColor">#0d1322</item>
+        <item name="android:windowBackground">#141b2e</item>
+    </style>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">오늘의 만나</string>
+    <!-- AdMob 배너 광고 단위 (이현민 계정) -->
+    <string name="admob_banner_id">ca-app-pub-9045678554149635/9025555307</string>
+</resources>
